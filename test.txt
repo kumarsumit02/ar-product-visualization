@@ -1,0 +1,38 @@
+brew install anaconda
+conda create --name test_env python=3.8
+source activate test_env
+conda deactivate
+
+pip install -r requirements.txt
+
+python detect.py --weights yolov5x.pt --source 0 --save-csv
+
+python detect.py --weights yolov5x.pt --source ~/Desktop/demo_video.MOV --view-img --save-csv
+
+python detect.py --weights yolov5x.pt --source ~/Desktop/demo_photo.png --view-img --save-csv
+
+
+additional params:
+
+1. To save cropped photos
+    --save-crop
+
+2. 
+
+python detect.py --weights runs/train/exp/weights/last.pt --source 0       
+
+python detect.py --weights runs/train/exp/weights/last.pt --source ~/Desktop/IMG_4258.MOV  --view-img
+
+
+# ran successfully 
+python train.py --img 640 --batch 2 --epochs 100 --data '../data.yaml' --weights yolov5s.pt --nosave --cache
+
+
+# new
+python train.py --img 640 --batch 2 --epochs 300 --data '../data.yaml' --weights yolov5x.pt --nosave --cache
+
+
+# exp 14 works - bottle
+
+# exp 22 works - basin sku33333
+
